@@ -13,7 +13,7 @@ FEATURE_LABELS = {
     "eGFR": "eGFR",
     "尿酸": "Uric Acid",
     "总胆红素": "Total Bilirubin",
-    "胰岛素": "Insulin Use",
+    "胰岛素": "Insulin",
     "血红蛋白量": "Hemoglobin",
     "尿素": "Urea",
     "是否使用胶体": "Colloid Use",
@@ -26,21 +26,19 @@ FEATURE_LABELS = {
 def load_assets():
     with open('webapp_assets/scaler.pkl', 'rb') as f:
         scaler = pickle.load(f)
-    with open('webapp_assets/trained_models.pkl', 'rb') as f:
-        models = pickle.load(f)
+    with open('webapp_assets/XGBoost.pkl', 'rb') as f:
+        model = pickle.load(f)
     with open('webapp_assets/selected_features.json', 'r', encoding='utf-8') as f:
         features = json.load(f)
     with open('webapp_assets/feature_meta.json', 'r', encoding='utf-8') as f:
         meta = json.load(f)
-    return scaler, models, features, meta
+    return scaler, model, features, meta
 
-scaler, models, selected_features, feature_meta = load_assets()
+scaler, model, selected_features, feature_meta = load_assets()
 
 st.title('AKI Prediction System')
 
-model_names = list(models.keys())
-default_idx = model_names.index('XGBoost') if 'XGBoost' in model_names else 0
-chosen_model = st.selectbox('Select Model', model_names, index=default_idx)
+st.selectbox('Select Model', ['XGBoost'])
 
 st.markdown('---')
 st.subheader('Input Feature Values')
@@ -70,7 +68,6 @@ st.markdown('---')
 if st.button('Predict', type='primary'):
     input_df = pd.DataFrame([input_values], columns=selected_features).astype(float)
     input_scaled = scaler.transform(input_df)
-    model = models[chosen_model]
     pred = model.predict(input_scaled)[0]
     prob = model.predict_proba(input_scaled)[0]
 
