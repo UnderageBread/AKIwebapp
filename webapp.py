@@ -13,7 +13,7 @@ FEATURE_LABELS = {
     "eGFR": "eGFR",
     "尿酸": "Uric Acid",
     "总胆红素": "Total Bilirubin",
-    "胰岛素": "Insulin",
+    "胰岛素": "Insulin Use",
     "血红蛋白量": "Hemoglobin",
     "尿素": "Urea",
     "是否使用胶体": "Colloid Use",
