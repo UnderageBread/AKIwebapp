@@ -7,19 +7,34 @@ import json
 import numpy as np
 import pandas as pd
 
+# FEATURE_LABELS = {
+#     "胱抑素C": "Cystatin C",
+#     "手术时长": "Surgery Duration",
+#     "eGFR": "eGFR",
+#     "尿酸": "Uric Acid",
+#     "总胆红素": "Total Bilirubin",
+#     "胰岛素": "Insulin",
+#     "血红蛋白量": "Hemoglobin",
+#     "尿素": "Urea",
+#     "是否使用胶体": "Colloid Use",
+#     "中性粒细胞计数": "Neutrophil Count",
+#     "凝血酶原时间": "Prothrombin Time",
+#     "ASA12": "ASA12",
+# }
+
 FEATURE_LABELS = {
     "胱抑素C": "Cystatin C",
     "手术时长": "Surgery Duration",
-    "eGFR": "eGFR",
+    "eGFR": "esti mated Glomerularfiltrationrate",
     "尿酸": "Uric Acid",
     "总胆红素": "Total Bilirubin",
-    "胰岛素": "Insulin",
+    "胰岛素": "Insulin Use",
     "血红蛋白量": "Hemoglobin",
-    "尿素": "Urea",
+    "尿素": "Blood Urea Nitrogen",
     "是否使用胶体": "Colloid Use",
     "中性粒细胞计数": "Neutrophil Count",
     "凝血酶原时间": "Prothrombin Time",
-    "ASA12": "ASA12",
+    "ASA12": "ASA Ⅰ/Ⅱ",
 }
 
 @st.cache_resource
