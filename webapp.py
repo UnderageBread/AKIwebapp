@@ -71,7 +71,8 @@ for i, feat in enumerate(selected_features):
     label = FEATURE_LABELS.get(feat, feat)
     col = cols[i % 2]
     if info['type'] == 'categorical':
-        options = info['values']
+        # options = info['values']
+        options = [0,1]
         input_values[feat] = col.selectbox(label, options, key=feat)
     else:
         input_values[feat] = col.number_input(
