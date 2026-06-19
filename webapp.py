@@ -59,7 +59,7 @@ st.subheader('Input Feature Values')
 
 input_values = {}
 cols = st.columns(2)
-st.write(feature_meta)
+# st.write(feature_meta)
 # 胰岛素
 # 是否使用胶体
 # ASA12
