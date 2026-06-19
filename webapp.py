@@ -60,6 +60,12 @@ st.subheader('Input Feature Values')
 input_values = {}
 cols = st.columns(2)
 st.write(feature_meta)
+# 胰岛素
+# 是否使用胶体
+# ASA12
+feature_meta['胰岛素']['type'] = 'categorical'
+feature_meta['是否使用胶体']['type'] = 'categorical'
+feature_meta['ASA12']['type'] = 'categorical'
 for i, feat in enumerate(selected_features):
     info = feature_meta[feat]
     label = FEATURE_LABELS.get(feat, feat)
