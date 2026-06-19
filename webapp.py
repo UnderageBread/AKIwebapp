@@ -29,12 +29,15 @@ FEATURE_LABELS = {
     "尿酸": "Uric Acid (μmol/L) ",
     "总胆红素": "Total Bilirubin (μmol/L)",
     "胰岛素": "Insulin Use",
+    "胰岛素": "Insulin Use (0=no perioperative use,1=use)",
+    "是否使用胶体": "Colloid Use (0=no perioperative use,1=use)",
+    "ASA12": "ASAⅠ/Ⅱ(0=ASAⅢ/Ⅳ/Ⅴ,1=ASAⅠ/Ⅱ)",
     "血红蛋白量": "Hemoglobin (g/L)",
     "尿素": "Blood Urea Nitrogen (mmol/L)",
-    "是否使用胶体": "Colloid Use",
+    # "是否使用胶体": "Colloid Use",
     "中性粒细胞计数": "Neutrophil Count (×10⁹/L)",
     "凝血酶原时间": "Prothrombin Time (s)",
-    "ASA12": "ASA Ⅰ/Ⅱ",
+    # "ASA12": "ASA Ⅰ/Ⅱ",
 }
 @st.cache_resource
 def load_assets():
