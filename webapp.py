@@ -23,20 +23,19 @@ import pandas as pd
 # }
 
 FEATURE_LABELS = {
-    "胱抑素C": "Cystatin C",
-    "手术时长": "Surgery Duration",
-    "eGFR": "esti mated Glomerularfiltrationrate",
-    "尿酸": "Uric Acid",
-    "总胆红素": "Total Bilirubin",
+    "胱抑素C": "Cystatin C (mg/L) ",
+    "手术时长": "Surgery Duration (min)",
+    "eGFR": "estimated Glomerular Filtration Rate (mL/min/1.73 m²)",
+    "尿酸": "Uric Acid (μmol/L) ",
+    "总胆红素": "Total Bilirubin (μmol/L)",
     "胰岛素": "Insulin Use",
-    "血红蛋白量": "Hemoglobin",
-    "尿素": "Blood Urea Nitrogen",
+    "血红蛋白量": "Hemoglobin (g/L)",
+    "尿素": "Blood Urea Nitrogen (mmol/L)",
     "是否使用胶体": "Colloid Use",
-    "中性粒细胞计数": "Neutrophil Count",
-    "凝血酶原时间": "Prothrombin Time",
+    "中性粒细胞计数": "Neutrophil Count (×10⁹/L)",
+    "凝血酶原时间": "Prothrombin Time (s)",
     "ASA12": "ASA Ⅰ/Ⅱ",
 }
-
 @st.cache_resource
 def load_assets():
     with open('webapp_assets/scaler.pkl', 'rb') as f:
@@ -51,7 +50,7 @@ def load_assets():
 
 scaler, model, selected_features, feature_meta = load_assets()
 
-st.title('AKI Prediction System')
+st.title('Predictive System for Postoperative Acute Kidney Injury in the Elderly')
 
 st.selectbox('Select Model', ['XGBoost'])
 
@@ -60,7 +59,7 @@ st.subheader('Input Feature Values')
 
 input_values = {}
 cols = st.columns(2)
-
+st.write(feature_meta)
 for i, feat in enumerate(selected_features):
     info = feature_meta[feat]
     label = FEATURE_LABELS.get(feat, feat)
