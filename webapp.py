@@ -79,6 +79,8 @@ for i, feat in enumerate(selected_features):
         input_values[feat] = col.selectbox(label, options, key=feat)
         if label in ['胰岛素','ASA12']:
             input_values[feat] = 1- float(input_values[feat])
+            st.write('修改')
+            st.write(input_values)
     else:
         input_values[feat] = col.number_input(
             label,
