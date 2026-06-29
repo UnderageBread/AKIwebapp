@@ -77,6 +77,8 @@ for i, feat in enumerate(selected_features):
         # options = info['values']
         options = [0,1]
         input_values[feat] = col.selectbox(label, options, key=feat)
+        if label in ['胰岛素','ASA12']:
+            input_values[feat] = 1- float(input_values[feat])
     else:
         input_values[feat] = col.number_input(
             label,
